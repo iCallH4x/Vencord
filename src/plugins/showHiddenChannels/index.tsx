@@ -82,6 +82,10 @@ export default definePlugin({
                 },
                 // Make channels we dont have access to be the same level as normal ones
                 {
+                    match: /(?=!1===\i.\i\.hasRelevantUnread\(this\.record\))/,
+                    replace: "$self.isHiddenChannel(this.record)||"
+                },
+                {
                     match: /(?<=renderLevel:(\i\(this,\i\)\?\i\.Show:\i\.WouldShowIfUncollapsed).+?renderLevel:).+?(?=,)/,
                     replace: (_, renderLevelExpression) => renderLevelExpression
                 },
