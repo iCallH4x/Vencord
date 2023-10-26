@@ -76,15 +76,19 @@ export default definePlugin({
                     replace: ""
                 },
                 // Do not check for unreads when selecting the render level if the channel is hidden
+<<<<<<< HEAD
                 {
                     match: /(?=!1===\i.\i\.hasRelevantUnread\(this\.record\))/,
                     replace: "$self.isHiddenChannel(this.record)||"
                 },
                 // Make channels we dont have access to be the same level as normal ones
+=======
+>>>>>>> 8692109 (Add comments to some SHC patches)
                 {
                     match: /(?=!1===\i.\i\.hasRelevantUnread\(this\.record\))/,
                     replace: "$self.isHiddenChannel(this.record)||"
                 },
+                // Make channels we dont have access to be the same level as normal ones
                 {
                     match: /(?<=renderLevel:(\i\(this,\i\)\?\i\.Show:\i\.WouldShowIfUncollapsed).+?renderLevel:).+?(?=,)/,
                     replace: (_, renderLevelExpression) => renderLevelExpression
