@@ -8,7 +8,7 @@ import { ScreenshareAudioPatcher, ScreensharePatcher } from "./patchers";
 import { replacedScreenshareModalComponent } from "./patches";
 import { initScreenshareAudioStore, initScreenshareStore } from "./stores";
 
-export default function definePlugin() {
+export default definePlugin() {
     return {
         name: PluginInfo.PLUGIN_NAME,
         description: PluginInfo.DESCRIPTION,
