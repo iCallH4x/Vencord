@@ -20,24 +20,15 @@ import { PluginAuthor, PluginDef } from "@utils/types";
 
 import { addSettingsPanelButton, Emitter, MicrophoneSettingsIcon, removeSettingsPanelButton } from "../philsPluginLibrary";
 import { PluginInfo } from "./constants";
+import definePlugin from "@utils/types";
 import { openMicrophoneSettingsModal } from "./modals";
 import { MicrophonePatcher } from "./patchers";
 import { initMicrophoneStore } from "./stores";
 
-export default new class Plugin implements PluginDef {
-    readonly name: string;
-    readonly description: string;
-    readonly authors: PluginAuthor[];
-    readonly dependencies: string[];
-
-    public microphonePatcher?: MicrophonePatcher;
-
-    constructor() {
-        this.name = PluginInfo.PLUGIN_NAME;
-        this.description = PluginInfo.DESCRIPTION;
-        this.authors = [PluginInfo.AUTHOR, ...Object.values(PluginInfo.CONTRIBUTORS)] as PluginAuthor[];
-        this.dependencies = ["PhilsPluginLibrary"];
-    }
+export default definePlugin ({
+    name = PluginInfo.PLUGIN_NAME;
+    description = PluginInfo.DESCRIPTION;
+    authors = [PluginInfo.AUTHOR, ...Object.values(PluginInfo.CONTRIBUTORS)] as PluginAuthor[];
 
     start(): void {
         initMicrophoneStore();
@@ -54,4 +45,4 @@ export default new class Plugin implements PluginDef {
 
         removeSettingsPanelButton(PluginInfo.PLUGIN_NAME);
     }
-};
+});
