@@ -10,7 +10,7 @@ import { initScreenshareAudioStore, initScreenshareStore } from "./stores";
 
 export default definePlugin({
     name: "BetterScreenshare",
-    description: "Makes your screensharing better"
+    description: "Makes your screensharing better",
     authors: [Devs.iCallH4x],
     patches: [
         {
