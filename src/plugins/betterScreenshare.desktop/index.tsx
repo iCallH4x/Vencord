@@ -1,6 +1,6 @@
 import { definePluginSettings } from "@api/Settings";
 import { DefinedSettings, OptionType, Patch, PluginAuthor, PluginDef, SettingsDefinition } from "@utils/types";
-
+import definePlugin from "@utils/types";
 import { addSettingsPanelButton, Emitter, removeSettingsPanelButton, ScreenshareSettingsIcon } from "../philsPluginLibrary";
 import { PluginInfo } from "./constants";
 import { openScreenshareModal } from "./modals";
@@ -8,7 +8,7 @@ import { ScreenshareAudioPatcher, ScreensharePatcher } from "./patchers";
 import { replacedScreenshareModalComponent } from "./patches";
 import { initScreenshareAudioStore, initScreenshareStore } from "./stores";
 
-export default definePlugin() {
+export default function definePlugin() {
     return {
         name: PluginInfo.PLUGIN_NAME,
         description: PluginInfo.DESCRIPTION,
