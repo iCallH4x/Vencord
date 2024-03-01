@@ -29,7 +29,7 @@ export default definePlugin ({
     name = PluginInfo.PLUGIN_NAME;
     description = PluginInfo.DESCRIPTION;
     authors = [PluginInfo.AUTHOR, ...Object.values(PluginInfo.CONTRIBUTORS)] as PluginAuthor[];
-
+    }
     start(): void {
         initMicrophoneStore();
 
