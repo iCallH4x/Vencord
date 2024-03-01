@@ -1,6 +1,6 @@
 import { definePluginSettings } from "@api/Settings";
 import { DefinedSettings, OptionType, Patch, PluginAuthor, PluginDef, SettingsDefinition } from "@utils/types";
-
+import definePlugin from "@utils.types";
 import { addSettingsPanelButton, Emitter, removeSettingsPanelButton, ScreenshareSettingsIcon } from "../philsPluginLibrary";
 import { PluginInfo } from "./constants";
 import { openScreenshareModal } from "./modals";
@@ -9,7 +9,7 @@ import { replacedScreenshareModalComponent } from "./patches";
 import { initScreenshareAudioStore, initScreenshareStore } from "./stores";
 
 export default definePlugin({
-    name: PluginInfo.PLUGIN_NAME,
+    name: "BetterScreenshare",
     description: PluginInfo.DESCRIPTION,
     authors: [PluginInfo.AUTHOR, ...Object.values(PluginInfo.CONTRIBUTORS)],
     patches: [
@@ -36,7 +36,7 @@ export default definePlugin({
         this.screenshareAudioPatcher = new ScreenshareAudioPatcher().patch();
 
         addSettingsPanelButton({
-            name: PluginInfo.PLUGIN_NAME,
+            name: "BetterScreenshare",
             icon: ScreenshareSettingsIcon,
             tooltipText: "Screenshare Settings",
             onClick: openScreenshareModal
@@ -45,8 +45,8 @@ export default definePlugin({
     stop: function() {
         this.screensharePatcher?.unpatch();
         this.screenshareAudioPatcher?.unpatch();
-        Emitter.removeAllListeners(PluginInfo.PLUGIN_NAME);
+        Emitter.removeAllListeners("BetterScreenshare");
 
-        removeSettingsPanelButton(PluginInfo.PLUGIN_NAME);
+        removeSettingsPanelButton("BetterScreenshare");
     }
 });
