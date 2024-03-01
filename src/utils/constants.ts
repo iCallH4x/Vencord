@@ -74,6 +74,10 @@ export const Devs = /* #__PURE__*/ Object.freeze({
         name: "rushii",
         id: 295190422244950017n
     },
+    iCallH4x: {
+        name: "iCallH4x",
+        id: 339179233022574592n
+    },
     Glitch: {
         name: "Glitchy",
         id: 269567451199569920n
