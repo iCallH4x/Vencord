@@ -1,6 +1,6 @@
 name: Build DevBuild
 on:
-    push:
+    workflow_dispatch:
         branches:
             - main
         paths:
