@@ -1,6 +1,6 @@
 name: Build DevBuild
 on:
-    workflow_dispatch:
+    push:
         branches:
             - main
         paths:
@@ -76,6 +76,6 @@ jobs:
                   git commit -m "Builds for https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
                   git push --force https://$USERNAME:$API_TOKEN@github.com/$GH_REPO.git
               env:
-                  API_TOKEN: ${{ secrets.BUILDS_TOKEN }}
-                  GH_REPO: iCallH4x/Builds
-                  USERNAME: GitHub-Actions
+                  API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GH_REPO: iCallH4x/builds
+                  USERNAME: Github-Actions
