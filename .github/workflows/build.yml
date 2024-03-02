@@ -78,4 +78,4 @@ jobs:
               env:
                   API_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
                   GH_REPO: iCallH4x/Builds
-                  USERNAME: GitHub-Actions
+                  USERNAME: iCallH4x
