@@ -29,7 +29,6 @@ import plugins from "~plugins";
 
 const logger = new Logger("Settings");
 export interface Settings {
-    notifyAboutUpdates: boolean;
     autoUpdate: boolean;
     autoUpdateNotification: boolean,
     useQuickCss: boolean;
@@ -78,8 +77,7 @@ export interface Settings {
 }
 
 const DefaultSettings: Settings = {
-    notifyAboutUpdates: true,
-    autoUpdate: false,
+    autoUpdate: true,
     autoUpdateNotification: true,
     useQuickCss: true,
     themeLinks: [],
@@ -162,7 +160,7 @@ SettingsStore.addGlobalChangeListener((_, path) => {
     SettingsStore.plain.cloud.settingsSyncVersion = Date.now();
     localStorage.Vencord_settingsDirty = true;
     saveSettingsOnFrequentAction();
-    VencordNative.settings.set(/* This is really bad but it works */JSON.parse(JSON.stringify(SettingsStore.plain)), path);
+    VencordNative.settings.set(SettingsStore.plain, path);
 });
 
 /**
